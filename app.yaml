@@ -30,6 +30,7 @@ spec:
 # The name of the container is specified below
         - name: stedi-caleb
 # The image is a prebuilt file containing the operating system
+# If no web domain is specified, builder will assume it goes to dockerhub.
           image: gcr.io/group-project-262/stedi-caleb
 # The ports is a list of tcp ports the pod listens on
           ports:
