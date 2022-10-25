@@ -7,7 +7,7 @@ kind: Deployment
 # Metadata is information related to the object we created in Kubernetes
 metadata:
 # The name here is the name of our deployment
-  name: stedi-caleb
+  name: redis-dev-caleb
 spec:
 # Replicas refers to the number of pods we deploy
   replicas: 1
@@ -16,19 +16,19 @@ spec:
 # Matchlabels are a label for my selector
     matchLabels:
 # App is a specific kind of label for my podkub
-      app: stedi-caleb
+      app: redis-dev-caleb
 # The Template describes all the features of my pod
   template:
 # Metadata provides labels for my template
     metadata:
       labels:
-        app: stedi-caleb
+        app: redis-dev-caleb
 # The spec refers to the specification of my containers in my pod
     spec:
 # Containers can have one or more docker containers in the pod
       containers:
 # The name of the container is specified below
-        - name: stedi-caleb
+        - name: redis-dev-caleb
 # The image is a prebuilt file containing the operating system
 # If no web domain is specified, builder will assume it goes to dockerhub.
           image: redis
@@ -70,11 +70,11 @@ apiVersion: v1
 kind: Service
 # metadata is the metadata
 metadata:
-  name: stedi-caleb-loadbalancer
+  name: redis-dev-caleb-loadbalancer
 spec: 
     # 'selector' tells network layer how to find the right pod
     selector:
-      app: stedi-caleb
+      app: redis-dev-caleb
     type: LoadBalancer # distrubutes network packets to one or more pods
     ports:
       - port: 80
