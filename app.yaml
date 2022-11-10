@@ -102,7 +102,7 @@ metadata:
 spec: 
     # 'selector' tells network layer how to find the right pod
     selector:
-      app: stedi
+      app: stedi-caleb
     type: NodePort # distrubutes network packets to one or more pods
     ports:
       - port: 80
