@@ -128,18 +128,14 @@ spec:
       port:
         number: 80
 ---
-# apiVersion tells Kubernetes which version of ymdiraml to use
-apiVersion: v1
-# kind tells what kind of object to create
-kind: Service
-# metadata is the metadata
-metadata:
-  name: stedi-caleb-loadbalancer
-spec: 
-    # 'selector' tells network layer how to find the right pod
-    selector:
-      app: stedi-caleb
-    type: LoadBalancer # distrubutes network packets to one or more pods
-    ports:
-      - port: 80
-        targetPort: 4567 # port that pod listens to inside of Kubernetes
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: stedi-caleb-loadbalancer
+# spec: 
+#     selector:
+#       app: stedi-caleb
+#     type: LoadBalancer
+#     ports:
+#       - port: 80
+#         targetPort: 4567
