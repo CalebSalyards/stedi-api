@@ -128,8 +128,6 @@ spec:
       port:
         number: 80
 ---
- 
----
 # apiVersion tells Kubernetes which version of ymdiraml to use
 apiVersion: v1
 # kind tells what kind of object to create
