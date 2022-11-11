@@ -64,22 +64,6 @@ spec:
             periodSeconds: 3
 ---
 # apiVersion tells Kubernetes which version of ymdiraml to use
-apiVersion: v1
-# kind tells what kind of object to create
-kind: Service
-# metadata is the metadata
-metadata:
-  name: stedi-caleb-loadbalancer
-spec: 
-    # 'selector' tells network layer how to find the right pod
-    selector:
-      app: stedi-caleb
-    type: LoadBalancer # distrubutes network packets to one or more pods
-    ports:
-      - port: 80
-        targetPort: 4567 # port that pod listens to inside of Kubernetes
----
-# apiVersion tells Kubernetes which version of ymdiraml to use
 apiVersion: networking.gke.io/v1
 # kind tells what kind of object to create
 kind: ManagedCertificate
