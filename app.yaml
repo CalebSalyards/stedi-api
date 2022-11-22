@@ -32,6 +32,18 @@ spec:
 # The image is a prebuilt file containing the operating system
 # If no web domain is specified, builder will assume it goes to dockerhub.
           image: gcr.io/group-project-262/stedi-caleb
+          env:
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secrets-dev-caleb
+                  key: REDIS_PASS
+            - name: REDIS_HOST
+              value: "redis-stedi-dev"
+            - name: REDIS_PORT
+              value: "6379"
+            - name: REDIS_DB
+              value: "0"
 # The ports is a list of tcp ports the pod listens on
           ports:
 # The container port is a specific port the pod listens on
@@ -59,7 +71,7 @@ spec:
 # Port defines the port to use when doing the HTTP request
               port: 4567
 # initialDelaySeconds tells Kubernetes to wait before doing a request
-            initialDelaySeconds: 3
+            initialDelaySeconds: 30
 # periodSeconds tells Kubernetes how often to check health
             periodSeconds: 3
 ---
@@ -69,7 +81,7 @@ apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 # metadata is the metadata
 metadata:
-  name: stedi-caleb-certificate
+  name: stedi-caleb-certificate2
 spec: 
     # 'selector' tells network layer how to find the right pod
     domains:
@@ -100,7 +112,7 @@ metadata:
   name: stedi-caleb-ingress
   annotations:
     kubernetes.io/ingress.global-static-ip-name: stedi-caleb
-    netwroking.gke.io/managed-certificates: stedi-caleb-certificate
+    netwroking.gke.io/managed-certificates: stedi-caleb-certificate2
     kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.class: "gce"
 spec:
