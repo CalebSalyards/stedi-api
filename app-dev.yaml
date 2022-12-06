@@ -134,7 +134,7 @@ metadata:
       #       name: my-discounted-products
       #       port:
       #         number: 80
-Replacing for the three-build layout
+# Replacing for the three-build layout
 spec:
   defaultBackend:
     service:
