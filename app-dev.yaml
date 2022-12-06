@@ -7,7 +7,7 @@ kind: Deployment
 # Metadata is information related to the object we created in Kubernetes
 metadata:
 # The name here is the name of our deployment
-  name: stedi-caleb
+  name: stedi-caleb-dev
 spec:
 # Replicas refers to the number of pods we deploy
   replicas: 1
@@ -16,13 +16,13 @@ spec:
 # Matchlabels are a label for my selector
     matchLabels:
 # App is a specific kind of label for my podkub
-      app: stedi-caleb
+      app: stedi-caleb-dev
 # The Template describes all the features of my pod
   template:
 # Metadata provides labels for my template
     metadata:
       labels:
-        app: stedi-caleb
+        app: stedi-caleb-dev
 # The spec refers to the specification of my containers in my pod
     spec:
 # Containers can have one or more docker containers in the pod
@@ -111,16 +111,37 @@ kind: Ingress
 metadata:
   name: stedi-caleb-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: stedi-caleb
+    kubernetes.io/ingress.global-static-ip-name: stedi-caleb-dev
     networking.gke.io/managed-certificates: stedi-caleb-certificate2
     # kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.class: "gce"
 spec:
-  defaultBackend:
-    service:
-      name: stedi-caleb-nodeport
-      port:
-        number: 80
+  rules:
+  - http:
+      paths:
+      - path: /dev
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: stedi-nodeport
+            port:
+              number: 60000
+      # - path: /discounted
+      #   pathType: ImplementationSpecific
+      #   backend:
+      #     service:
+      #       name: my-discounted-products
+      #       port:
+      #         number: 80
+# Replacing for the three-build layout
+# spec:
+#   defaultBackend:
+#     service:
+#       name: stedi-caleb-nodeport
+#       port:
+#         number: 80
+
+
 # ---
 # apiVersion: v1
 # kind: Service
