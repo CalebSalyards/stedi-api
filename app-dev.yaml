@@ -115,17 +115,18 @@ metadata:
     networking.gke.io/managed-certificates: stedi-caleb-certificate2
     # kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.class: "gce"
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /dev
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: stedi-caleb-nodeport
-            port:
-              number: 80
+# New spec for final three-build layout
+# spec:
+#   rules:
+#   - http:
+#       paths:
+#       - path: /dev
+#         pathType: ImplementationSpecific
+#         backend:
+#           service:
+#             name: stedi-caleb-nodeport
+#             port:
+#               number: 80
       # - path: /discounted
       #   pathType: ImplementationSpecific
       #   backend:
@@ -133,13 +134,13 @@ spec:
       #       name: my-discounted-products
       #       port:
       #         number: 80
-# Replacing for the three-build layout
-# spec:
-#   defaultBackend:
-#     service:
-#       name: stedi-caleb-nodeport
-#       port:
-#         number: 80
+Replacing for the three-build layout
+spec:
+  defaultBackend:
+    service:
+      name: stedi-caleb-nodeport
+      port:
+        number: 80
 
 
 # ---
