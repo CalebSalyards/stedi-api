@@ -123,7 +123,7 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: stedi-nodeport
+            name: stedi-caleb-nodeport
             port:
               number: 60000
       # - path: /discounted
