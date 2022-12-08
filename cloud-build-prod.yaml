@@ -13,11 +13,11 @@ steps:
   # This step pushes the image to Container Registry
   # The PROJECT_ID and SHORT_SHA variables are automatically
   # replaced by Cloud Build.
-  - name: 'gcr.io/cloud-builders/docker'
-    id: Push-Latest
-    args:
-      - 'push'
-      - 'gcr.io/$PROJECT_ID/stedi-caleb:latest'
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   id: Push-Latest
+  #   args:
+  #     - 'push'
+  #     - 'gcr.io/$PROJECT_ID/stedi-caleb:latest'
 
   # This step stops the stedi pod
   - name: 'gcr.io/cloud-builders/kubectl'
@@ -52,10 +52,3 @@ steps:
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
       - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
-
-      - name: 'gcr.io/cloud-builders/gcloud'
-        args:
-        - builds
-        - submit
-        - --config
-        - cloudbuild-prod.yaml
