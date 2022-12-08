@@ -35,7 +35,7 @@ steps:
     args:
       - run
       - --filename=app-dev.yaml
-      - --image=gcr.io/$PROJECT_ID/stedi-caleb:$SHORT_SHA
+      - --image=gcr.io/$PROJECT_ID/stedi-caleb:latest
       - --location=us-central1-c
       - --cluster=cluster-1
       - --output=/temp/output-prod
