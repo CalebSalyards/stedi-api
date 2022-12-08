@@ -7,7 +7,7 @@ kind: Deployment
 # Metadata is information related to the object we created in Kubernetes
 metadata:
 # The name here is the name of our deployment
-  name: stedi-caleb-dev
+  name: stedi-caleb-test
 spec:
 # Replicas refers to the number of pods we deploy
   replicas: 1
@@ -16,13 +16,13 @@ spec:
 # Matchlabels are a label for my selector
     matchLabels:
 # App is a specific kind of label for my podkub
-      app: stedi-caleb-dev
+      app: stedi-caleb-test
 # The Template describes all the features of my pod
   template:
 # Metadata provides labels for my template
     metadata:
       labels:
-        app: stedi-caleb-dev
+        app: stedi-caleb-test
 # The spec refers to the specification of my containers in my pod
     spec:
 # Containers can have one or more docker containers in the pod
@@ -36,10 +36,10 @@ spec:
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: redis-secrets-dev-caleb
+                  name: redis-secrets-test-caleb
                   key: REDIS_PASS
             - name: REDIS_HOST
-              value: "redis-stedi-dev"
+              value: "redis-stedi-test"
             - name: REDIS_PORT
               value: "6379"
             - name: REDIS_DB
@@ -97,7 +97,7 @@ metadata:
 spec: 
     # 'selector' tells network layer how to find the right pod
     selector:
-      app: stedi-caleb-dev
+      app: stedi-caleb-test
     type: NodePort # distrubutes network packets to one or more pods
     ports:
       - port: 80
@@ -111,7 +111,7 @@ kind: Ingress
 metadata:
   name: stedi-caleb-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: stedi-caleb-dev
+    kubernetes.io/ingress.global-static-ip-name: stedi-caleb-test
     networking.gke.io/managed-certificates: stedi-caleb-certificate2
     # kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.class: "gce"
