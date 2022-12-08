@@ -39,6 +39,7 @@ steps:
       - --image=gcr.io/$PROJECT_ID/stedi-caleb:latest
       - --location=us-central1-c
       - --cluster=cluster-1
+      - --output=/temp/output-prod
 
   # This step scales up the stedi pod
   - name: 'gcr.io/cloud-builders/kubectl'
