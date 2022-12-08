@@ -111,7 +111,7 @@ kind: Ingress
 metadata:
   name: stedi-caleb-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: stedi-caleb-prod
+    kubernetes.io/ingress.global-static-ip-name: stedi-caleb
     networking.gke.io/managed-certificates: stedi-caleb-certificate2
     # kubernetes.io/ingress.allow-http: "false"
     kubernetes.io/ingress.class: "gce"
