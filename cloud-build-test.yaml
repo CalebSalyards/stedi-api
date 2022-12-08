@@ -57,4 +57,4 @@ steps:
     - builds
     - submit
     - --config
-    - cloudbuild-prod.yaml
+    - cloud-build-prod.yaml
