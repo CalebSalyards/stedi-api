@@ -58,4 +58,4 @@ steps:
     - builds
     - submit
     - --config
-    - cloudbuild-test.yaml
+    - cloud-build-test.yaml
